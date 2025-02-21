@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gestion-paises-deployment-demo
+  namespace: dev
+  labels:
+    app: api-gestion-paises-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-gestion-paises-demo
+  template:
+    metadata:
+      labels:
+        app: api-gestion-paises-demo
+    spec:
+      containers:
+      - name: api-gestion-paises-demo
+        image: anovoa1975/ms-demo-v7:1.0.0
+        imagePullPolicy: Always
+        ports:
+          - name: http
+            containerPort: 8082
+        resources:
+          limits:
+            cpu: 1
+            memory: 1Gi
+          requests:
+            cpu: 100m

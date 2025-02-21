@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ms-demo-v1-replicaset
+  labels:
+    app: ms-demo-v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-demo-v1
+  template:
+    metadata:
+      labels:
+        app: ms-demo-v1
+    spec:
+      containers:
+      - name: ms-demo-v1
+        image: anovoa1975/ms-demo-v7:1.0.0
+        imagePullPolicy: Always
+        ports:
+          - name: http
+            containerPort: 8082
+        resources:
+          limits:
+            cpu: 1
+            memory: 1Gi
+          requests:
+            cpu: 100m

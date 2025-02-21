@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-data-configmap
+data:
+  kubernetes_name_service_1: "EKS"
+  cloud_name_1: "Amazon Web Services"
+  kubernetes_name_service_2: "AKS"
+  cloud_name_2: "Azure"
+  kubernetes_name_service_3: "GKS"
+  cloud_name_3: "Google"
